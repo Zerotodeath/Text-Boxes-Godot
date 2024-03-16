@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://wh35d7udujub"]
+
+[ext_resource type="Script" path="res://UI/test_veiw.gd" id="1_52tbh"]
+[ext_resource type="PackedScene" uid="uid://cn1so4ls8k4op" path="res://UI/text_box.tscn" id="1_kbtdw"]
+
+[node name="Test Veiw" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_52tbh")
+
+[node name="Text Box" parent="." instance=ExtResource("1_kbtdw")]
+layout_mode = 1

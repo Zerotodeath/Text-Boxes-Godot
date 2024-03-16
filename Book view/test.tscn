@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv06cpa8u82bq"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_78byn"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_nlcio"]
+[ext_resource type="Texture2D" uid="uid://ci321r1ye2pxj" path="res://icon.svg" id="2_uqc17"]
+[ext_resource type="Script" path="res://Classes/TextItem.gd" id="4_c80xu"]
+[ext_resource type="PackedScene" uid="uid://wh35d7udujub" path="res://UI/test_veiw.tscn" id="5_c4tvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cap0x"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5imj"]
+radius = 192.167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7t12l"]
+radius = 176.0
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_78byn")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_nlcio")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_uqc17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_cap0x")
+
+[node name="Text Cube" type="Area2D" parent="."]
+position = Vector2(192, 256)
+script = ExtResource("4_c80xu")
+id = "timti1"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Text Cube"]
+modulate = Color(0.792157, 0.792157, 0.792157, 1)
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_uqc17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Text Cube"]
+shape = SubResource("CircleShape2D_d5imj")
+
+[node name="textItem" type="Area2D" parent="."]
+script = ExtResource("4_c80xu")
+id = "timti2"
+
+[node name="Sprite2D" type="Sprite2D" parent="textItem"]
+modulate = Color(0.521569, 0.0196078, 0.380392, 1)
+position = Vector2(848, 256)
+texture = ExtResource("2_uqc17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="textItem"]
+position = Vector2(848, 256)
+shape = SubResource("CircleShape2D_7t12l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Test Veiw" parent="CanvasLayer" instance=ExtResource("5_c4tvx")]
+visible = false
+
+[connection signal="area_entered" from="Text Cube" to="Text Cube" method="_on_area_entered"]
+[connection signal="clicked" from="Text Cube" to="." method="_on_text_cube_clicked"]
+[connection signal="clicked" from="textItem" to="." method="_on_text_cube_clicked"]
