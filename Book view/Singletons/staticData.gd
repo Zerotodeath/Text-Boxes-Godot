@@ -2,7 +2,7 @@ extends Node
 
 var itemData = {}
 
-var data_file_path = "res://JSON/Text Sheet.json"
+var data_file_path = "res://JSON/Untitled spreadsheet - Sheet1.json"
 
 func _ready():
 	itemData = load_json(data_file_path)

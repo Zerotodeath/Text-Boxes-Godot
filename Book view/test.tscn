@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_cap0x")
 [node name="Text Cube" type="Area2D" parent="."]
 position = Vector2(192, 256)
 script = ExtResource("4_c80xu")
-id = "timti1"
+id = "test1"
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Text Cube"]
@@ -44,7 +44,7 @@ shape = SubResource("CircleShape2D_d5imj")
 
 [node name="textItem" type="Area2D" parent="."]
 script = ExtResource("4_c80xu")
-id = "timti2"
+id = "test2"
 
 [node name="Sprite2D" type="Sprite2D" parent="textItem"]
 modulate = Color(0.521569, 0.0196078, 0.380392, 1)
